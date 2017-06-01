@@ -163,7 +163,11 @@ class HasPermission
     {
         $action = $this->request->route()->getAction();
 
-        return isset($action[$key]) ? $action[$key] : false;
+        if(! isset($action[$key])) {
+            return false;
+        }
+        $roles = (array)$action[$key];
+        return end($roles);
     }
 
     /**
