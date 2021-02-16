@@ -89,8 +89,8 @@ trait Helper
         }
 
         return is_array($str) ?
-            array_filter($str, 'strtolower') : is_object($str) ?
-                $str : strtolower($str);
+            array_filter($str, 'strtolower') :
+            (is_object($str) ? $str : strtolower($str));
     }
 
     /**
